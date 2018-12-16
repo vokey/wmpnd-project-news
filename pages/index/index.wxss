@@ -1,1 +1,26 @@
 /**index.wxss**/
+.categories {
+  display: flex;
+  align-items: center;
+  height: 66rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  background-color: #fd4747;
+  color: #fab6b6;
+}
+
+.category {
+  margin: 0 20rpx;
+}
+
+.category:first-child {
+  margin-left: 32rpx;
+}
+
+.gn {
+  font-size: 32rpx;
+  line-height: 56rpx;
+  color: #fff;
+  opacity: 0.8;
+  border-bottom: solid 10rpx #fff;
+}

@@ -1,2 +1,4 @@
 <!--index.wxml-->
-
+<view class='categories'>
+  <view wx:for="{{categories}}" class='category {{index}}'>{{item}}</view>
+</view>
