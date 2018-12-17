@@ -1,4 +1,5 @@
 <!--index.wxml-->
 <view class='categories'>
-  <view wx:for="{{categories}}" class='category {{index}}'>{{item}}</view>
+  <view wx:for="{{categories}}" class='category {{selected===index?"selected":""}}' id='{{index}}' bindtap='onTapCategory'>{{item}}</view>
 </view>
+
