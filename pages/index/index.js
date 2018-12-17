@@ -23,6 +23,21 @@ Page({
       this.setData({
         selected: newSelection
       })
+      this.getNewsList()
     }
+  },
+
+  getNewsList() {
+    let newsType = this.data.selected
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/list',
+      data: {
+        type: newsType
+      },
+      success: res => {
+        // Debug
+        console.log(res.data)
+      }
+    })
   }
 })
