@@ -29,14 +29,28 @@ Page({
 
   getNewsList() {
     let newsType = this.data.selected
-    wx.request({
-      url: 'https://test-miniprogram.com/api/news/list',
-      data: {
-        type: newsType
-      },
+    wx.getStorage({
+      key: newsType,
       success: res => {
-        // Debug
+        console.log('This is cached data.')
         console.log(res.data)
+      },
+      fail: error => {
+        console.log(error)
+        wx.request({
+          url: 'https://test-miniprogram.com/api/news/list',
+          data: {
+            type: newsType
+          },
+          success: res => {
+            // Debug
+            console.log(res.data.result)
+            wx.setStorage({
+              key: newsType,
+              data: res.data.result
+            })
+          }
+        })
       }
     })
   }
