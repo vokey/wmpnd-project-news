@@ -16,6 +16,7 @@ Page({
   onTapCategory(event) {
     // Debug
     console.log(event.target.id)
+    // Try to get element's id, which refer to news categories.
     let newSelection = event.target.id
     if (newSelection !== this.data.selected) {
       // Debug
@@ -35,6 +36,7 @@ Page({
         console.log('This is cached data.')
         console.log(res.data)
       },
+      // If cannot get value with specific key, try to fetch news list from api.
       fail: error => {
         console.log(error)
         wx.request({
@@ -45,6 +47,7 @@ Page({
           success: res => {
             // Debug
             console.log(res.data.result)
+            // Store the newest news list after fetching.
             wx.setStorage({
               key: newsType,
               data: res.data.result
@@ -53,5 +56,7 @@ Page({
         })
       }
     })
+    // End of wx.getStorage
   }
+  // End of getNewList
 })
