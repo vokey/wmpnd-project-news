@@ -18,6 +18,13 @@ Page({
     this.getNewsList()
   },
 
+  // Handle pulldown refresh event
+  onPullDownRefresh() {
+    this.fetchNews(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
+
   onTapCategory(event) {
     // Try to get element's id, which refer to news categories.
     let newSelection = event.target.id
@@ -42,37 +49,45 @@ Page({
       },
       // If cannot get value from cache, try to fetch news list from api.
       fail: error => {
-        wx.request({
-          url: 'https://test-miniprogram.com/api/news/list',
-          data: {
-            type: newsType
-          },
-          success: res => {
-            let result = res.data.result
-            for (let i = 0; i < result.length; i++) {
-              let date = result[i].date.split("T")
-              result[i].date = date[0]
-            }
-            let newsList = {
-              headline: result.slice(0, 1),
-              news: result.slice(1)
-            }
-            // Set newsList
-            this.setData({
-              newsList: newsList,
-            })
-            // Store the newest news list after fetching.
-            wx.setStorage({
-              key: newsType,
-              data: newsList
-            })
-          },
-        })
+        this.fetchNews()
       },
     })
     // End of wx.getStorage
   },
-  // End of getNewList
+
+  // Fetch news from api
+  fetchNews(callback) {
+    let newsType = this.data.selected 
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/list',
+      data: {
+        type: newsType
+      },
+      success: res => {
+        let result = res.data.result
+        for (let i = 0; i < result.length; i++) {
+          let date = result[i].date.split("T")
+          result[i].date = date[0]
+        }
+        let newsList = {
+          headline: result.slice(0, 1),
+          news: result.slice(1)
+        }
+        // Set newsList
+        this.setData({
+          newsList: newsList,
+        })
+        // Store the newest news list after fetching.
+        wx.setStorage({
+          key: newsType,
+          data: newsList
+        })
+      },
+      complete: () => {
+        callback && callback()
+      }
+    })
+  },
 
   onTapNews(event) {
     let id = event.currentTarget.dataset.id
