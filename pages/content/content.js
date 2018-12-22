@@ -69,6 +69,16 @@ Page({
         })
       }
     })
-  }
+  },
   // End of getNewsContent
+
+// Handle tap image event
+  onTapImage(event) {
+    let id = event.currentTarget.dataset.contentId
+    let url = this.data.newsContent[id].src
+    // Preview tapped image
+    wx.previewImage({
+      urls: [url],
+    })
+  }
 })
