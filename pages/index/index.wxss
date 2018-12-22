@@ -1,4 +1,5 @@
 /**index.wxss**/
+/* Categories */
 .categories {
   display: flex;
   align-items: center;
@@ -23,4 +24,41 @@
   color: #fff;
   opacity: 0.8;
   border-bottom: solid 10rpx #fff;
+}
+
+/* News list*/
+.news-list {
+  padding: 30rpx;
+}
+
+.news-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid #f7e7e798;
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+.news-info-wrapper {
+  flex-grow: 1;
+}
+
+.news-title {
+  font-size: 12pt;
+  opacity: 0.8;
+}
+
+.news-info {
+  margin-top: 10rpx;
+  font-size: 10pt;
+  line-height: 14pt;
+  opacity: 0.5;
+}
+
+.news-cover {
+  width: 240rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
 }

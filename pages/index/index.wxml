@@ -1,5 +1,21 @@
 <!--index.wxml-->
 <view class='categories'>
-  <view wx:for="{{categories}}" class='category {{selected===index?"selected":""}}' id='{{index}}' bindtap='onTapCategory'>{{item}}</view>
+  <view wx:for="{{categories}}" wx:key='cat{{index}}' class='category {{selected===index?"selected":""}}' id='{{index}}' bindtap='onTapCategory'>{{item}}</view>
+</view>
+<view class='news-list'>
+  <view wx:for='{{newsList}}' wx:key='{{item.id}}' class='news-item'>
+    <!-- News title, source, time -->
+    <view class='news-info-wrapper'>
+      <text class='news-title'>{{item.title}}</text>
+      <view class='news-info'>
+        <text class='news-source'>{{item.source}}</text>
+        <text class='news-date'>{{item.date}}</text>
+      </view>
+    </view>
+    <!-- News cover image -->
+    <view class='image-wrapper'>
+      <image class='news-cover' src='{{item.firstImage}}' mode='aspectFill'></image>
+    </view>
+  </view>
 </view>
 
