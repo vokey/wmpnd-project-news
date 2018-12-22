@@ -11,6 +11,11 @@ Page({
       "other": "其他"
     },
     selected: 'gn',
+    newsList: {},
+  },
+
+  onLoad() {
+    this.getNewsList()
   },
 
   onTapCategory(event) {
@@ -30,13 +35,18 @@ Page({
 
   getNewsList() {
     let newsType = this.data.selected
+    // Try to use local cache.
     wx.getStorage({
       key: newsType,
       success: res => {
         console.log('This is cached data.')
         console.log(res.data)
+        // Set newsList
+        this.setData({
+          newsList: res.data,
+        })
       },
-      // If cannot get value with specific key, try to fetch news list from api.
+      // If cannot get value from cache, try to fetch news list from api.
       fail: error => {
         console.log(error)
         wx.request({
@@ -47,14 +57,18 @@ Page({
           success: res => {
             // Debug
             console.log(res.data.result)
+            // Set newsList
+            this.setData({
+              newsList: res.data,
+            })
             // Store the newest news list after fetching.
             wx.setStorage({
               key: newsType,
               data: res.data.result
             })
-          }
+          },
         })
-      }
+      },
     })
     // End of wx.getStorage
   }
