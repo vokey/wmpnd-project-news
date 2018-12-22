@@ -57,14 +57,23 @@ Page({
           success: res => {
             // Debug
             console.log(res.data.result)
+            let result = res.data.result
+            for (let i = 0; i < result.length; i++) {
+              let date = result[i].date.split("T")
+              result[i].date = date[0]
+            }
+            let newsList = {
+              headline: result.slice(0, 1),
+              news: result.slice(1)
+            }
             // Set newsList
             this.setData({
-              newsList: res.data,
+              newsList: newsList,
             })
             // Store the newest news list after fetching.
             wx.setStorage({
               key: newsType,
-              data: res.data.result
+              data: newsList
             })
           },
         })
