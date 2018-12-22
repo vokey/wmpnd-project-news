@@ -75,8 +75,9 @@ Page({
   // End of getNewList
 
   onTapNews(event) {
+    let id = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/content/content?id=' + event.currentTarget.id,
+      url: '/pages/content/content?id=' + id,
     })
   }
 })
