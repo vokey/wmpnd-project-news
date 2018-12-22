@@ -5,8 +5,25 @@
   </view>
 </view>
 
+<view class='headline-wrapper'>
+  <view wx:for='{{newsList.headline}}' wx:key='{{item.id}}' class='headline'>
+    <!-- Headline title, source, time -->
+    <view class='headline-info-wrapper'>
+      <text class='headline-title'>{{item.title}}</text>
+      <view class='headline-info'>
+        <text class='headline-source' wx:if='{{item.source}}'>{{item.source}}</text>
+        <text class='headline-date'>{{item.date}}</text>
+      </view>
+    </view>
+    <!-- Headline image -->
+    <view class='headline-image-wrapper'>
+      <view class='overlay'></view>
+      <image class='headline-image' src='{{item.firstImage}}' mode='aspectFill'></image>
+    </view>
+  </view>
+</view>
 <view class='news-list'>
-  <view wx:for='{{newsList}}' wx:key='{{item.id}}' class='news-item'>
+  <view wx:for='{{newsList.news}}' wx:key='{{item.id}}' class='news-item'>
     <!-- News title, source, time -->
     <view class='news-info-wrapper'>
       <text class='news-title'>{{item.title}}</text>
