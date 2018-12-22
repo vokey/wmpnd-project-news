@@ -1,7 +1,10 @@
 <!--index.wxml-->
-<view class='categories'>
-  <view wx:for="{{categories}}" wx:key='cat{{index}}' class='category {{selected===index?"selected":""}}' id='{{index}}' bindtap='onTapCategory'>{{item}}</view>
+<view class='fixed-wrapper'>
+  <view class='categories'>
+    <view wx:for="{{categories}}" wx:key='cat{{index}}' class='category {{selected===index?"selected":""}}' id='{{index}}' bindtap='onTapCategory'>{{item}}</view>
+  </view>
 </view>
+
 <view class='news-list'>
   <view wx:for='{{newsList}}' wx:key='{{item.id}}' class='news-item'>
     <!-- News title, source, time -->

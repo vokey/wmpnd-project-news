@@ -1,4 +1,10 @@
 /**index.wxss**/
+.fixed-wrapper {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+}
 /* Categories */
 .categories {
   display: flex;
@@ -28,6 +34,7 @@
 
 /* News list*/
 .news-list {
+  margin-top: 66rpx;
   padding: 30rpx;
 }
 
