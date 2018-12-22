@@ -40,9 +40,6 @@ Page({
           firstImage: result.firstImage,
           readCount: result.readCount,
         })
-        // Debug
-        console.log("Cached:")
-        console.log(result)
       },
       fail: err => {
         // Fetch from api if cannot get content from cache
@@ -52,9 +49,6 @@ Page({
             id: id
           },
           success: res => {
-            // Debug
-            console.log("Fetch from web:")
-            console.log(res.data.result)
             let result = res.data.result
             let date = result.date.split("T")
             result.date = date[0]
