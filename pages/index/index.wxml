@@ -6,7 +6,7 @@
 </view>
 
 <view class='headline-wrapper'>
-  <view wx:for='{{newsList.headline}}' wx:key='{{item.id}}' class='headline'>
+  <view wx:for='{{newsList.headline}}' wx:key='{{item.id}}' class='headline' id='{{item.id}}' bindtap='onTapNews'>
     <!-- Headline title, source, time -->
     <view class='headline-info-wrapper'>
       <text class='headline-title'>{{item.title}}</text>
@@ -23,7 +23,7 @@
   </view>
 </view>
 <view class='news-list'>
-  <view wx:for='{{newsList.news}}' wx:key='{{item.id}}' class='news-item'>
+  <view wx:for='{{newsList.news}}' wx:key='{{item.id}}' class='news-item' id='{{item.id}}' bindtap='onTapNews'>
     <!-- News title, source, time -->
     <view class='news-info-wrapper'>
       <text class='news-title'>{{item.title}}</text>

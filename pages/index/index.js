@@ -80,6 +80,13 @@ Page({
       },
     })
     // End of wx.getStorage
-  }
+  },
   // End of getNewList
+
+  onTapNews(event) {
+    console.log(event)
+    wx.navigateTo({
+      url: '/pages/content/content?id=' + event.currentTarget.id,
+    })
+  }
 })
