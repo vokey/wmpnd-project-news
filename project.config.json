@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.2",
+	"libVersion": "2.4.0",
 	"appid": "wxfc1a9eef6df4f017",
 	"projectname": "News",
 	"debugOptions": {
@@ -28,13 +28,24 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "content",
+					"pathName": "pages/content/content",
+					"query": "id=1523074607642"
+				}
+			]
 		}
 	}
 }
