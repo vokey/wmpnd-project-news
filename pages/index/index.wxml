@@ -8,7 +8,7 @@
     <view class='news-info-wrapper'>
       <text class='news-title'>{{item.title}}</text>
       <view class='news-info'>
-        <text class='news-source'>{{item.source}}</text>
+        <text class='news-source' wx:if='{{item.source}}'>{{item.source}}</text>
         <text class='news-date'>{{item.date}}</text>
       </view>
     </view>
