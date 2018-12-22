@@ -76,4 +76,5 @@ Page({
       }
     })
   }
+  // End of getNewsContent
 })
