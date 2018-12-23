@@ -1,4 +1,6 @@
 // pages/content/content.js
+const utils = require('../../utils/utils.js')
+
 Page({
 
   /**
@@ -50,8 +52,7 @@ Page({
           },
           success: res => {
             let result = res.data.result
-            let date = result.date.split("T")
-            result.date = date[0]
+            result.date = utils.getDate(result.date)
             this.setData({
               newsContent: result.content,
               title: result.title,

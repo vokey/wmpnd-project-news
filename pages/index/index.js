@@ -1,4 +1,6 @@
 //index.js
+const utils = require('../../utils/utils.js')
+
 Page({
   data: {
     categories: {
@@ -66,8 +68,7 @@ Page({
       success: res => {
         let result = res.data.result
         for (let i = 0; i < result.length; i++) {
-          let date = result[i].date.split("T")
-          result[i].date = date[0]
+          result[i].date = utils.getDate(result[i].date)
         }
         let newsList = {
           headline: result.slice(0, 1),
@@ -84,7 +85,7 @@ Page({
         })
       },
       complete: () => {
-        callback && callback()
+        typeof callback === 'function' && callback()
       }
     })
   },
