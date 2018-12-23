@@ -32,13 +32,11 @@
   padding: 30rpx;
 }
 
-.content {
+
+.content-text {
   margin: 20rpx 0;
   font-size: 32rpx;
   line-height: 64rpx;
-}
-
-.content-text {
   opacity: 0.75;
 }
 

@@ -9,12 +9,12 @@
 </view>
 
 <view class='content-wrapper'>
-  <view class='content' wx:for='{{newsContent}}' wx:key='{{item.id}}'>
+  <block wx:for='{{newsContent}}' wx:key='{{item.id}}'>
     <view class='paragraph content-text' wx:if='{{item.type == "p"}}'>{{item.text}}</view>
     <view class='strong content-text' wx:if='{{item.type == "strong"}}'>{{item.text}}</view>
     <view class='image-wrapper' wx:if='{{item.type == "image"}}' bindtap='onTapImage' data-content-id='{{index}}'>
       <image class='news-image' src='{{item.src}}' mode='aspectFit'></image>
     </view>
-  </view>
+  </block>
 </view>
 
